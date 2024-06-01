@@ -14,6 +14,9 @@ function Layout(){
           <li>
             <NavLink to='/dogs'>Dogs page</NavLink>
           </li>
+          <li>
+            <NavLink to='/pokemons'>Pokemons page</NavLink>
+          </li>
         </ul>
       </nav>
       <Outlet/>

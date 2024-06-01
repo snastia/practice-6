@@ -4,4 +4,4 @@ function DogDetailPage(){
     )
 }
 
-export default DogDetailPage;;
+export default DogDetailPage;
