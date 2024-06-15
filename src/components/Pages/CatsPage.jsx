@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 function CatsPage(){
   const [cats, setCats] = useState(['cat-1', 'cat-2', 'cat-3', 'cat-4'])
+  const location = useLocation()
   const [searchParams, setSearchParams] = useSearchParams('');
 
-  const catId = searchParams.get('name') || ''
+  const catId = searchParams.get('name') ?? ''
 
   const updateQueryString = (e) => {
     if(e.target.value !== ''){
@@ -25,8 +27,9 @@ function CatsPage(){
           <ul>
             {visibleCats().map(cat => {
             return (
-               <li>
-                <Link to={`${cat}`}>{cat}</Link>
+               <li key={cat}>
+                <Link to={`${cat}`} key={cat} cat={cat} 
+                state={{from: location}}>{cat}</Link>
                 </li>
             )
           })}
